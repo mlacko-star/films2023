@@ -1,0 +1,33 @@
+
+.content {
+    margin-top: 5px;
+    position: relative;
+    
+}
+.poster {
+    position: relative;
+    float: left;
+    height: 400px;
+    left:80;
+}
+.content1 {
+    display: inline-block;
+    color: gray;
+    padding: 5px;
+}
+.content2 {
+    display: inline-block;
+    color: grey;
+    margin-left: 5px;
+}
+
+h1 {
+    color: magenta;    
+    margin-bottom: 0;
+}
+
+
+
+
+
+

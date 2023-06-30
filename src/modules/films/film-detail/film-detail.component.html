@@ -1,0 +1,21 @@
+<div class="content" *ngIf="omdbData">
+  <div>
+    <img class="poster" src="{{ omdbData.Poster }}" />
+    <h1>{{ omdbData.Title }}</h1>
+    <p class="content1">{{ omdbData.Genre }}</p>
+    <div>
+      <span class="content2">{{ omdbData.Language }} /</span>
+      <span class="content2">{{ omdbData.Released }} /</span>
+      <span class="content2">{{ omdbData.Runtime }}</span>
+    </div>
+    <div>
+      <p><span>Writers: </span>{{omdbData.Writer}}</p>
+      <p><span>Director: </span>{{omdbData.Director}}</p>
+      <p><span>Lead role:</span> {{leadActors}}</p> 
+    </div>
+  </div>
+  <div>
+    Plot:
+    {{omdbData.Plot}}
+  </div>
+</div>

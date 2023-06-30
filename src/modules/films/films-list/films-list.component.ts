@@ -6,11 +6,19 @@ import { UsersService } from 'src/services/users.service';
 import { FilmsService } from '../films.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-films-list',
   templateUrl: './films-list.component.html',
-  styleUrls: ['./films-list.component.css']
+  styleUrls: ['./films-list.component.css'],
+  animations: [
+    trigger('expand', [
+      state('collapsed', style({height: '0px'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('0.5s')),
+    ]),
+  ],
 })
 export class FilmsListComponent implements OnInit, AfterViewInit{
 
@@ -20,6 +28,9 @@ export class FilmsListComponent implements OnInit, AfterViewInit{
   @ViewChild(MatPaginator) paginator?: MatPaginator;
   @ViewChild(MatSort) sort?: MatSort;
   filterEmitter = new EventEmitter<string>();
+
+  expandedElement: any
+  
   
   constructor(private filmsService: FilmsService, private usersService: UsersService){
     this.filmsDataSource = new FilmsDataSource(filmsService);
